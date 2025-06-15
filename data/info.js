@@ -2,7 +2,8 @@ export const facts = [
 
     { id: 1 , fact: "Cheetahs are the fastest land animals, capable of reaching speeds up to 75 mph." , verified: true , source: "https://www.nationalgeographic.com/animals/mammals/facts/cheetah"} , 
     { id: 2 , fact: "A cheetah's tail helps with balance and steering at high speeds." , verified: true , source: "https://www.nathab.com/blog/cheetah-adaptation-survival-of-the-fastest-on-international-cheetah-day"} ,
-    { id: 3 , fact: "Cheetah cubs have a mantle of long hair that helps camouflage them in grass." , verified: true , source: "https://www.cheetah.org/about-the-cheetah/"}
+    { id: 3 , fact: "Cheetah cubs have a mantle of long hair that helps camouflage them in grass." , verified: true , source: "https://www.cheetah.org/about-the-cheetah/"} ,
+    { id: 4 , fact: "Cheetah abandon their high-speed chases due to the risk of overheating" , verified: false}
 
 ];
 

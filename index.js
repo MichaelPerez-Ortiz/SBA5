@@ -25,7 +25,20 @@ app.use((req, res, next) => {
   next();
 });
 
+app.set("view engine" , "ejs");
+app.set("views" , path.join(__dirname , "views"));
+
 ////////////////////GET\\\\\\\\\\\\\\\\\\\\\\
+
+
+app.get("/" , (req , res) => {
+    res.render("index.ejs" , {
+        facts: facts ,
+        sightings: sightings ,
+        organizations: organizations
+    });
+});
+
 
 //Facts
 
@@ -67,7 +80,7 @@ app.get("/sightings" , (req , res) => {
 
 app.get("/organizations" , (req , res) => {
   let filteredOrgs = organizations;
-  const {name, location, focus} = req.query;
+  const {name , location , focus} = req.query;
 
   if (name) {
     filteredOrgs = filteredOrgs.filter(org =>
@@ -138,7 +151,7 @@ app.post("/organizations" , (req , res) => {
 app.put("/facts/:id" , validateFact , (req , res) => {
 
   let id = parseInt(req.params.id);
-  let index = facts.findIndex(find => find.id === id);
+  let index = facts.findIndex(fact => fact.id === id);
   
     if (index === -1) {
 
@@ -189,7 +202,7 @@ app.patch("/sightings/:id" , (req , res) => {
 app.delete("/facts/:id" , (req , res) => {
 
   let id = parseInt(req.params.id);
-  let index = facts.findIndex(find => find.id === id);
+  let index = facts.findIndex(fact => fact.id === id);
   
         if (index === -1) {
             return res.status(404).json({ error: "Fact not found" });
