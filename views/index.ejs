@@ -7,74 +7,74 @@
     <link rel="stylesheet" href="style.css">
     <script defer src="data/info.js" type="module"></script>
     <script defer src="index.js" type="module"></script>
-    <script defer src="script.js" type="module"></script>
+    <script defer src="/script.js" type="module"></script>
 </head>
 <body>
     <div class="container">
-        <h1> Cheetah Information Center </h1>
+        <h1> <%= "Cheetah Information Center" %> </h1>
 
        
         <div class="filter">
-            <h2> Cheetah Facts </h2>
-            <button id="allFacts"> All Facts </button>
-            <button id="verifiedOnly"> Verified Only </button>
-            <button id="apply"> Apply Filter </button>
-            <button id="clear"> Clear Filter </button>
+            <h2> <%="Cheetah Facts"%> </h2>
+            <button id="allFacts"> <%="All Facts"%> </button>
+            <button id="verifiedOnly"> <%="Verified Only"%> </button>
+            <button id="apply"> <%="Apply Filter"%> </button>
+            <button id="clear"> <%="Clear Filter"%> </button>
         </div>
 
         
         <div class="forms">
             <form id="facts">
-                <h2> Add New Fact </h2>
+                <h2> <%="Add New Facts"%> </h2>
                 <input type="text" id="text" placeholder="Fact" required>
                 <input type="text" id="source" placeholder="Source">
                 <input type="checkbox" id="verify">
-                <label for="verified"> Verified </label>
-                <button type="submit"> Add Fact </button>
+                <label for="verified"> <%="Verified"%> </label>
+                <button type="submit"> <%="Add Fact"%> </button>
             </form>
 
 
         <section>
-            <h2> Cheetah Sightings </h2>
+            <h2> <%="Cheetah Sightings"%> </h2>
             <form id="sightings">
                 <div>
-                    <label for="habitat"> Filter by Location: </label>
+                    <label for="habitat"> <%="Filter by Location:"%> </label>
                     <input type="text" id="Filter">
                 </div>
 
                 <div class="layout">
-                    <label for="min"> Minimum Count: </label>
+                    <label for="min"> <%="Minimum Count:"%> </label>
                     <input type="number" id="count">
                 </div>
                 
                 <div>
-                    <button type="submit"> Apply Filter </button>
-                    <button type="button" class="clear"> Clear Filter </button>
+                    <button type="submit"> <%="Apply Filter"%> </button>
+                    <button type="button" class="clear"> <%="Clear Filter"%> </button>
                 </div>
             </form>
         </section>
 
 
             <form id="org">
-                <h2> Organizations </h2>
+                <h2> <%="Organizations"%> </h2>
                 <div>
-                    <label for="name"> Name: </label>
+                    <label for="name"> <%="Name:"%> </label>
                     <input type="text" id="name">
                 </div>
 
                 <div class="layout">
-                    <label for="location"> Location: </label>
+                    <label for="location"> <%="Location:"%> </label>
                     <input type="text" id="loc">
                 </div>
                 
                 <div class="layout">
-                    <label for="focus"> Focus: </label>
+                    <label for="focus"> <%="Focus:"%> </label>
                     <input type="text" id="focus">
                 </div>
                 
                 <div>
-                    <button type="submit"> Apply Filter </button>
-                    <button type="button" class="clear"> Clear Filter </button>
+                    <button type="submit"> <%="Apply Filter"%> </button>
+                    <button type="button" class="clear"> <%="Clear Filter"%> </button>
                 </div>
             </form>
         </div>
@@ -82,17 +82,17 @@
         <!-- Outputs -->
         <div class="outputs">
             <output class="output">
-                <h2> Facts </h2>
+                <h2> <%="Facts"%> </h2>
                 <output id="facOutput"></output>
             </output>
             
             <output class="output">
-                <h2> Sightings </h2>
+                <h2> <%="Sightings"%> </h2>
                  <output id="sigOutput"></output>
             </output>
 
             <output class="output">
-                <h2> Organizations </h2>
+                <h2> <%="Organizations"%> </h2>
                 <output id="orgOutput"></output>
             </output>
         </div>

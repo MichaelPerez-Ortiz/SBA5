@@ -94,8 +94,10 @@ h2 {
 
 #count:hover {
 
+    border: 1px solid #000000;
     
 }
+
 
 .outputs {
 
