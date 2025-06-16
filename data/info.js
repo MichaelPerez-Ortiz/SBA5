@@ -10,7 +10,7 @@ export const facts = [
 export const sightings= [
 
     { id: 1 , habitat: "Serengeti National Park" , date: "2023-05-15" , count: 3} ,
-    { id: 2 , habitat: "masai mara" , date: "2023-09-1" , count: 5} ,
+    { id: 2 , habitat: "Maasai Mara" , date: "2023-09-1" , count: 5} ,
     { id: 3 , habitat: "Dasht-e Kavir" , date: "2022-08-19" , count: 1} ,
     { id: 4 , habitat: "Botswana" , date: "2018-02-02" , count: 2}
 
