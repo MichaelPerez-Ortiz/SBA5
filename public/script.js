@@ -7,7 +7,13 @@ const verifiedOnlyBtn = document.getElementById("verifiedOnly");
 const applyBtn = document.getElementById("apply");
 const clearBtn = document.getElementById("clear");
 
-let currentFactFilter = null; 
+const factForm = document.getElementById("facts");
+const factInput = document.getElementById("text");
+const sourceInput = document.getElementById("source");
+const verifyInput = document.getElementById("verify");
+
+let currentFactFilter = null;
+let factsData = []; 
 
 
 function createFactHTML(fact) {
@@ -41,6 +47,89 @@ function createOrganizationHTML(org) {
       <b>Focus:</b> ${org.focus}
     </div>`;
 }
+
+
+function verifyState() {
+
+    verifyInput.disabled = sourceInput.value.trim() === "";
+    verifyInput.checked = false;
+}
+
+    verifyState();
+
+    sourceInput.addEventListener("input", verifyState);
+
+async function loadFacts() {
+    
+    try {
+
+        let load = await fetch("/facts");
+
+        if (!load.ok) throw new Error(`Server error: ${load.status}`);
+            factsData = await load.json();
+
+    } catch (err) {
+
+       facOutput.innerHTML = `<i>Error loading facts: ${err.message}</i>`;
+
+    }
+
+}
+
+    loadFacts();
+
+
+factForm.addEventListener("submit" , async (event) => {
+    event.preventDefault();
+
+        let newFact = {
+
+            fact: factInput.value ,
+            source: sourceInput.value ,
+            verified: verifyInput.checked
+      };
+
+    try {
+
+         let send = await fetch("/facts", {
+            method: "POST",
+            headers: {
+
+                "Content-Type" : "application/json"
+        },
+
+            body: JSON.stringify(newFact)
+
+     });
+
+        if (!send.ok) {
+            throw new Error(`Server error: ${send.status}`);
+        }
+
+        let addedFact = await send.json();
+
+    facOutput.innerHTML = facOutput.innerHTML + createFactHTML(addedFact);
+
+        factInput.value = "";
+        sourceInput.value = "";
+        verifyInput.checked = false;
+
+        factsData.push(addedFact);
+
+        verifyState();
+
+        if(currentFactFilter) {
+
+            showFacts();
+        }
+
+
+    } catch(err) {
+
+        facOutput.innerHTML = `<i>Error adding fact: ${err.message}<i>`;
+  }
+
+});
 
 
 //Facts
